@@ -8,6 +8,7 @@ const lastName = "Latif";
 // EXERCISE
 // show in the console
 // My first name is Anders and my last name is Latif
+
 console.log(`My first name is ${firstName} and my last name is ${lastName}`);
 
 // --------------------------------------
@@ -20,10 +21,11 @@ const number = 1;
 // The result should be 2023
 // You cannot touch line 1 or 2
 
-const result=Number(year)+number; //bruger(Number)
-//const result = +year +number (bruger Number)
-//const result=Number.parseInt(year)+number (bruger parseInt)
-//const result=parseInt(year)+number (bruger parseInt)
+const result = Number(year) + number; //(uses Number)
+//const result = +year +number //(uses Number)
+//const result=Number.parseInt(year)+number //(uses parseInt)
+//const result=parseInt(year)+number //(uses parseInt)
+
 console.log(result);
 
 // --------------------------------------

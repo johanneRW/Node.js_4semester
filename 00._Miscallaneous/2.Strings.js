@@ -1,3 +1,5 @@
+const { default: collect } = require("collect.js"); //import of collect.js for exercice 5
+
 // --------------------------------------
 // Exercise 3 - Add numbers from string to float
 
@@ -6,7 +8,8 @@ const numberTwo = "2.30";
 
 // add those two numbers and show the result
 // you cannot touch line 1 neither line 2
-const result=Number(numberOne)+Number(numberTwo)
+
+const result = Number(numberOne) + Number(numberTwo)
 
 console.log(result)
 
@@ -19,10 +22,10 @@ console.log(result)
 const anotherNumberOne = "1.10";
 const anotherNumberTwo = "2.30";
 
-const resultOne=Number(anotherNumberOne)+Number(anotherNumberTwo)
-const resultDeci=resultOne.toFixed(2)
+const anotherResult = Number(anotherNumberOne) + Number(anotherNumberTwo)
+const anotherResultWhit2Decimals = anotherResult.toFixed(2)
 
-console.log(resultDeci)
+console.log(anotherResultWhit2Decimals)
 
 // --------------------------------------
 // Exercise 5 - Decimals and average
@@ -31,13 +34,13 @@ const one = 10;
 const two = 45;
 const three = 98;
 
-const avgNumber=(one + two + three)/3
-
-console.log(avgNumber.toFixed(5))
 // Show in the console the avg. with 5 decimals
 
+//const avergeNumber=(one + two + three)/3 //alternative solution 
+const average = collect([one, two, three]).avg()
+const averageWhitFiveDecimals = average.toFixed(5)
 
-
+console.log(averageWhitFiveDecimals)
 
 
 // --------------------------------------
@@ -46,7 +49,7 @@ console.log(avgNumber.toFixed(5))
 const letters = "abc";
 // Get me the character "c"
 
-const char=letters.charAt(2)
+const char = letters.charAt(2)
 
 console.log(char)
 
@@ -56,8 +59,10 @@ console.log(char)
 const fact = "You are learning javascript!";
 
 // capitalize the J in Javascript
-const factWhitUpperJ=fact.replace("j","J")
-console.log(factWhitUpperJ)
+
+const capitalizedFact = fact.replace("j", "J")
+
+console.log(capitalizedFact)
 // --------------------------------------
 
 

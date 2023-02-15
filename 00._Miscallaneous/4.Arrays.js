@@ -51,8 +51,8 @@ console.log(diet)
 // Remove the LAST element of the array.
 // Don't remove by index. You know in advance that it's the last in the array because you are too full already. 
 
-//diet.pop() //alternative solution 
-diet.splice(-1)
+diet.pop() 
+//diet.splice(-1)  //alternative solution
 console.log(diet)
 
 
@@ -73,12 +73,17 @@ const lettersExpanded = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
 // log every second char in the array starting from b
 
-for (let i = 0; i < lettersExpanded.length; i++) {
-    const letter = lettersExpanded[i]
-    if (i % 2 === 1) {
-        console.log(letter)
-    }
-}
+// alternative solution:
+// for (let i = 0; i < lettersExpanded.length; i++) {
+//     const letter = lettersExpanded[i]
+//     if (i % 2 === 1) {
+//         console.log(letter)
+//     }
+// }
+
+for (let i = 1; i < lettersExpanded.length; i += 2) {
+    console.log(lettersExpanded[i]);
+}  
 
 // --------------------------------------
 // Exercise 8 - For loop and if statement

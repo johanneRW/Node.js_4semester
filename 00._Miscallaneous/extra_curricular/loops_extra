@@ -1,0 +1,38 @@
+const spaceships = [
+    { name: "Chinese Weather Balloon" },
+    { name: undefined, type: "UFO" },
+    { name: "Apollo 13", versionNumber: 13 }
+]
+//loop and console log esch element
+spaceships.forEach((spaceship) => console.log(spaceship))
+
+//for all spaceships maer the owner China
+
+const spaceshipChina = spaceships.map(spaceship => ({ ...spaceship, owner: "China" }))
+console.log(spaceshipChina)
+
+//add cost of isPriceless: true to all spaceshipChina
+
+const pricelessSpaceships = spaceshipChina.map(spaceship => ({ ...spaceship, isPriceless: true }))
+
+console.log(pricelessSpaceships)
+
+//a list of priceless and not priseless in two lists
+const spaceshipsPrice = [
+    { name: "Chinese Weather Balloon", isPriceless: false, cost:1_000_000 },
+    { name: undefined, type: "UFO", isPriceless: true, cost:Number.MAX_SAFE_INTEGER },
+    { name: "Apollo 13", versionNumber: 13, isPriceless: false, cost:2_000_000 }
+]
+const spaceshipsPriceless = spaceshipsPrice.filter(spaceship => (spaceship.isPriceless === true))
+const spaceshipWhitPrice = spaceshipsPrice.filter(spaceship => (spaceship.isPriceless === false))
+
+console.log(spaceshipsPriceless)
+console.log(spaceshipWhitPrice)
+
+//finde a spaceship that cost less than 2 million yuan/doller/whatever spacebucks
+
+const cheapestSpaceships=spaceshipsPrice.find(spaceship => spaceship.cost <=2_000_000)
+const cheapestSpaceshipsList=spaceshipsPrice.filter(spaceship => spaceship.cost <=2_000_000)
+
+console.log(cheapestSpaceships)
+console.log(cheapestSpaceshipsList)

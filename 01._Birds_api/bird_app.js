@@ -22,9 +22,8 @@ app.get('/', (req, res) => {
    res.send('Welcome to the birds-app!')
 })
 
-
 app.get('/birds/', (req, res) => {
-   res.send(listOfBirds)
+   res.send({data:listOfBirds})
 })
 
 app.get('/birds/:id', (req, res) => {
@@ -36,7 +35,7 @@ app.get('/birds/:id', (req, res) => {
    const match = listOfBirds.find(matchingId)
 
    if (match !== undefined) {
-      res.send(match)
+      res.send({data: match})
    } else {
       res.sendStatus(404)
    }
@@ -44,4 +43,5 @@ app.get('/birds/:id', (req, res) => {
 })
 
 
-app.listen(8080)
+app.listen(8080, () => {
+   console.log("Server is running on port", 8080)})

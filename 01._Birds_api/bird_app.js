@@ -21,6 +21,7 @@ let listOfBirds = [
       'age': 7
    },
 ]
+let current_id = 2
 
 const makeMatchingId = (id) => {
    return (bird) => {
@@ -47,7 +48,8 @@ app.get('/birds/:id', (req, res) => {
    }
 })
 
-//post whitout a database to autoincrement the id
+/* //post whitout a database to autoincrement the id
+   //problem if you delete the higest id
 app.post('/birds/', (req, res) => {
    if (Object.keys(req.body).length === 0) {
       res.sendStatus(400)
@@ -63,7 +65,21 @@ app.post('/birds/', (req, res) => {
 
       res.sendStatus(200)
    }
+}) */
+app.post('/birds/', (req, res) => {
+   if (Object.keys(req.body).length === 0) {
+      res.sendStatus(400)
+   } else {
+      // put new bird in the list
+      const newBird = req.body
+      newBird['id'] = ++current_id
+      listOfBirds.push(newBird)
+
+      res.sendStatus(200)
+   }
 })
+
+
 
 //update a bird
 app.put('/birds/:id', (req, res) => {
@@ -102,11 +118,12 @@ app.patch('/birds/:id', (req, res) => {
    }
 })
 
-//delete whitout a database connection
+
+/* //delete whitout a database connection
 app.delete('/birds/:id', (req, res) => {
    const matchingId = makeMatchingId(req.params.id)
    const match = listOfBirds.find(matchingId)
-
+//convention says to put error-message first 
    if (match !== undefined) {
       // make new list of birds, without the bird that is removed
       listOfBirds = listOfBirds.filter(({ id }) => id !== Number(req.params.id))
@@ -114,4 +131,18 @@ app.delete('/birds/:id', (req, res) => {
    } else {
       res.sendStatus(404)
    }
+}) */
+
+//delete whitout a database connection
+app.delete('/birds/:id', (req, res) => {
+   const matchingId = makeMatchingId(req.params.id)
+   const match = listOfBirds.find(matchingId)
+   //convention says to put error-message first 
+   if (match === -1) {
+      res.sendStatus(404)
+   } else {
+      listOfBirds = listOfBirds.filter(({ id }) => id !== Number(req.params.id))
+      res.sendStatus(200)
+   }
+
 })

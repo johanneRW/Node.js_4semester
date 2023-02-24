@@ -52,7 +52,6 @@ app.listen(8080, (error) => {
             })
     })
 
-    
 const days=["Sunday","Monday","Thuseday","Wedensday","Thurday","Friday","Saturday"]
 
     app.get("/time/day", (req, res) => {
